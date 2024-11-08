@@ -1,0 +1,355 @@
+body{
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #141313;
+  color: white;
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #141313;
+  padding: 10px 20px;
+  color: white;
+}
+
+.navbar .logo img {
+  height: 30px;
+  margin-right: 20px;
+}
+
+.navbar .login-btn {
+  background-color: rgba(58, 48, 48, 0.7960784314);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.navbar .login-btn:hover {
+  background-color: #0062cc;
+}
+
+.login-btn {
+  background-color: rgba(58, 48, 48, 0.7960784314);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 16px; }
+
+@media screen and (max-width: 768px) {
+  .navbar .login-btn {
+    display: block; /* Altere de 'none' para 'block' */
+    width: 100%; /* Faz o botão ocupar toda a largura da navbar */
+    margin-top: 10px; /* Adiciona um espaço em cima do botão, se necessário */
+    text-decoration: none; /* Remove o sublinhado */
+  }
+}
+
+/* Ajuste da barra de pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  padding: 5px 10px;
+  max-width: 400px; /* Aumentando a largura máxima */
+  width: 100%; /* Faz a barra de pesquisa ocupar toda a largura possível */
+  background-color: #f9f9f9;
+  margin: 0 auto; /* Centralizando a barra de pesquisa */
+   box-sizing: border-box;
+}
+
+.search-container input[type="text"] {
+  border: none;
+  outline: none;
+  width: 100%; /* Faz o campo de pesquisa ocupar todo o espaço */
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.search-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button img {
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .search-container {
+    max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+  }
+
+  .navbar .search-container {
+    width: auto;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
+
+  .navbar .right-menu {
+    margin-left: auto;
+  }
+}
+
+/* Seção de top 10 */
+.top-ten-section {
+  padding: 20px;
+  background-color: #141313;
+}
+
+.top-ten-section .top-ten-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.top-ten-section .top-ten-container .top-ten-grid {
+  display: flex;
+  gap: 10px;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+}
+
+.top-ten-section .top-ten-container .top-ten-grid .movie-card {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 200px;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.top-ten-section .top-ten-container .top-ten-grid .movie-card img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .top-ten-section {
+    padding: 10px;
+  }
+
+  .movie-card {
+    max-width: 100px;
+  }
+
+  .movie-card img {
+    max-height: 120px;
+  }
+}
+/* ------------------------------------CAUA MEXEU NESSE  CODIGO ------------------------------------------*/
+/* Carrossel */
+.slider-container {
+    width: 100%;
+    overflow: hidden; /* Esconde as imagens fora da área visível */
+    position: relative;
+}
+
+.slide {
+    min-width: 100%; /* Cada slide ocupa 100% da largura do contêiner */
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+/* ----------------------------------------------------------------------------------------------*/
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Suaviza a transição ao mudar de slide */
+}
+.slide-info {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.slide-info h3 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.slide-info h2 {
+  font-size: 24px;
+  margin: 5px 0 0 0;
+}
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Coloca os botões acima do slider */
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .prev, .next {
+    padding: 8px;
+  }
+}
+
+/* Itens do carrossel */
+.carousel {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  border-left: 5px solid yellow;
+  padding-left: 10px;
+}
+
+.carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-items {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.item {
+  min-width: 300px;
+  margin-right: 10px;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.item img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .carousel-items {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+      width: 100%; /* Garante que não ultrapasse a largura do dispositivo */
+  }
+
+  .item {
+    min-width: 100%;
+    margin-right: 0;
+  }
+
+  .item img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Footer */
+.footer {
+  background-color: #141313;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.footer-content strong {
+  color: #FFD700; /* Dourado */
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    padding: 15px;
+  }
+
+  .footer-content p {
+    font-size: 12px;
+  }
+}
+
+.imagembanner {
+            display: block; 
+            max-width: 100%; 
+            height: auto; 
+            margin: 0 auto; 
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+        /* Para dispositivos móveis */
+        @media screen and (max-width: 768px) {
+            .imagembanner {
+                width: 90%; 
+            }
+        }
+
+        /* Para desktops */
+        @media screen and (min-width: 769px) {
+            .imagembanner {
+                width: 600px; 
+            }
+        }
+.navbar, .search-container, .top-ten-section {
+   max-width: 100%;
+}
+html, body {
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
